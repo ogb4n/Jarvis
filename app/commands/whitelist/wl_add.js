@@ -5,19 +5,19 @@ const db = new Database("whitelist.sqlite");
 
 
 module.exports = {
-
+            // define a new command
     data : new SlashCommandBuilder()
         .setName('wl_add')
         .setDescription('Add an user to the whitelist')
         .addStringOption(option => option.setName('user').setDescription('The user to add to the whitelist').setRequired(true))
         .addStringOption(option => option.setName('id').setDescription('The id of the user').setRequired(true)),
 
-
+        // code executed when the command is called 
     async execute(interaction) {
 
         let user = interaction.options.getString('user');
         let id = interaction.options.getString('id');
-
+ 
         const check = db.prepare(`SELECT * FROM users WHERE userID = ${id}`);
         const resultCheck = check.get();
         

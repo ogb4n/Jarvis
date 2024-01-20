@@ -12,6 +12,8 @@ const db = new Database("whitelist.sqlite");
 require("dotenv").config();
 
 
+/// this is the base configuration for each bot, starting 
+
 // CLIENT JARVIS
 const client = new Client({
 	partials: [Partials.Message, Partials.Reaction],
@@ -58,6 +60,8 @@ const xmr_pricebot = new Client({
 	],
 });
 
+
+	// logs declaration for every 
 eth_pricebot.once(Events.ClientReady, () => {
 	console.log(`Logged in as ${eth_pricebot.user}!`);
 });
@@ -80,7 +84,10 @@ const rr = new ReactionRole(client, [
 	{ messageId: process.env.ROLE_MESSAGE_ID, reaction: "🤵", roleId: process.env.ROLE_AUTRE},
   ]);
 
-const sentCVEs = new Set();
+
+  /// CVE DSCORD SENDER NOT WORKING
+
+//const sentCVEs = new Set();
 // if (fs.existsSync('sentCVEs.json')) {
 //   const sentCVEsFile = fs.readFileSync('sentCVEs.json', 'utf8');
 //   const sentCVEsArray = JSON.parse(sentCVEsFile);
@@ -127,7 +134,7 @@ const sentCVEs = new Set();
 // 	// 	channel.send({ embeds: [embed] });
 // 	}
 
-
+// CALLING A PYTHON SCRIPT WTF ???§ 
 async function getCVEInformation() {
 	// Replace 'python3' with the appropriate command to run Python on your system
 	const pythonProcess = exec('python ../scraper/scrap.py', (error, stdout, stderr) => {
