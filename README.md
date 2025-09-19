@@ -30,9 +30,37 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run Jarvis from the command line:
+### Quick Start
+
+The easiest way to run Jarvis is using the launcher script:
+
 ```bash
+# Run setup first (checks dependencies)
+python launch.py --setup
+
+# See a demonstration of all features
+python demo.py
+
+# Run Jarvis in voice mode
+python launch.py
+
+# Run Jarvis in test mode (no audio required)
+python launch.py --test
+```
+
+### Manual Usage
+
+You can also run Jarvis directly:
+
+```bash
+# Full voice mode
 python jarvis.py
+
+# Test mode (text input/output)
+python test_jarvis.py
+
+# Setup and dependency check
+python setup.py
 ```
 
 ### Supported Commands

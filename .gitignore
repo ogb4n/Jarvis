@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Jarvis runtime files
+*.wav
+*.mp3
+audio_cache/

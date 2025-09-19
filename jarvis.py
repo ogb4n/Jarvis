@@ -14,19 +14,29 @@ import sys
 class Jarvis:
     def __init__(self):
         """Initialize Jarvis voice assistant."""
-        self.recognizer = sr.Recognizer()
-        self.microphone = sr.Microphone()
-        self.tts_engine = pyttsx3.init()
-        self.is_listening = False
-        
-        # Configure text-to-speech settings
-        self.setup_voice()
-        
-        # Adjust for ambient noise
-        print("Adjusting for ambient noise... Please wait.")
-        with self.microphone as source:
-            self.recognizer.adjust_for_ambient_noise(source)
-        print("Ready to listen!")
+        try:
+            self.recognizer = sr.Recognizer()
+            self.microphone = sr.Microphone()
+            self.tts_engine = pyttsx3.init()
+            self.is_listening = False
+            
+            # Configure text-to-speech settings
+            self.setup_voice()
+            
+            # Adjust for ambient noise
+            print("Adjusting for ambient noise... Please wait.")
+            with self.microphone as source:
+                self.recognizer.adjust_for_ambient_noise(source)
+            print("Ready to listen!")
+            
+        except Exception as e:
+            print(f"❌ Failed to initialize Jarvis: {e}")
+            print("\n💡 Troubleshooting tips:")
+            print("   • Make sure your microphone is connected")
+            print("   • Check that no other applications are using the microphone")
+            print("   • Try running: python launch.py --test (for text mode)")
+            print("   • Run: python setup.py (to check dependencies)")
+            raise
     
     def setup_voice(self):
         """Configure the text-to-speech voice settings."""
