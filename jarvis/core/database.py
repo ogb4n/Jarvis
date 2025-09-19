@@ -1,9 +1,9 @@
 from pymongo import MongoClient, IndexModel, TEXT
 from typing import Optional
-import logging
+from jarvis.core.config import settings
 
 class DatabaseService:
-    def __init__(self, mongodb_url: str, database_name: str = "jarvis"):
+    def __init__(self, mongodb_url: str, database_name: str = settings.database_name):
         self.client = MongoClient(mongodb_url)
         self.db = self.client[database_name]
         self._ensure_indexes()
